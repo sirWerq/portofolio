@@ -1,6 +1,5 @@
 import { Arrow, RotatingText } from "@/components/atoms";
-import Image from "next/image";
-import Link from "next/link";
+import { Card, RectangleCard } from "@/components/molecules";
 
 interface Experience {
     id: number;
@@ -51,9 +50,9 @@ const projects: Project[] = [
 
 export default function Home() {
     return (
-        <div className="px-2 md:px-16 pt-20 space-y-2 lg:space-y-6">
-            <div className="space-y-1 lg:space-y-2">
-                <h1 className="font-semibold text-lg md:text-xl lg:text-2xl flex items-center gap-2 h-[54px]">
+        <div className="px-2 md:px-16 pt-20 space-y-2 lg:space-y-6 min-h-svh">
+            <div className="space-y-8 lg:space-y-2">
+                <h1 className="font-semibold text-lg md:text-xl lg:text-2xl flex items-center justify-center lg:justify-start flex-wrap gap-2 h-[54px]">
                     <span>Hello, I am</span>
                     <RotatingText
                         texts={[
@@ -92,31 +91,14 @@ export default function Home() {
                 </h2>
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 items-center w-full">
                     {experiences.map((experience) => (
-                        <Link
-                            href={experience.href}
-                            className="border w-full max-w-[350px] lg:max-w-[580px] h-[200px] rounded-lg p-4 custom-effect flex gap-2 items-center relative"
+                        <RectangleCard
                             key={experience.id}
-                            target="_blank"
-                        >
-                            <div className="absolute top-3 right-2 text-slate-400 text-xs">
-                                <span>{experience.date}</span>
-                            </div>
-                            <Image
-                                src={experience.image}
-                                alt={experience.title}
-                                width={133}
-                                height={133}
-                                className="rounded"
-                            />
-                            <div className="w-full">
-                                <h3 className="font-semibold text-xl">
-                                    {experience.title}
-                                </h3>
-                                <p className="text-sm text-slate-600">
-                                    {experience.description}
-                                </p>
-                            </div>
-                        </Link>
+                            href={experience.href}
+                            date={experience.date}
+                            description={experience.description}
+                            title={experience.title}
+                            image={experience.image}
+                        />
                     ))}
                     <Arrow href={"/works"} />
                 </div>
@@ -127,30 +109,13 @@ export default function Home() {
                 </h2>
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 items-center">
                     {projects.map((project) => (
-                        <Link
-                            href={project.href}
-                            className="border w-[350px] h-[350px] rounded-lg p-4 custom-effect flex gap-2 items-center relative"
+                        <Card
                             key={project.id}
-                            target="_blank"
-                        >
-                            <div className="flex flex-col gap-2 items-center w-full h-full">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    width={133}
-                                    height={133}
-                                    className="rounded"
-                                />
-                                <div className="w-full">
-                                    <h3 className="font-semibold text-xl">
-                                        {project.title}
-                                    </h3>
-                                    <p className="text-sm text-slate-600">
-                                        {project.description}
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
+                            image={project.image}
+                            title={project.title}
+                            description={project.description}
+                            href={project.href}
+                        />
                     ))}
                     <Arrow href={"/works"} />
                 </div>

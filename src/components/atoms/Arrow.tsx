@@ -10,6 +10,7 @@ export default function Arrow({ href }: { href: string }) {
                 width={40}
                 height={40}
                 className="cursor-pointer hover:translate-x-0.5 hover:translate-y-0.5"
+                style={{ width: "auto", height: "auto" }}
             />
         </Link>
     );

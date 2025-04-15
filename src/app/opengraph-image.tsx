@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "About Rifqi";
+export const alt =
+    "Rifqi Alisba Garwita Sutrisno - Front-End Developer | Informatics Engineering Student";
 export const size = {
     width: 1200,
     height: 630,

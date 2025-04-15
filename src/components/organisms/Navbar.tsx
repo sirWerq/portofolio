@@ -10,7 +10,7 @@ export default function Navbar() {
     const { isMenuOpen, setIsMenuOpen } = useGlobalHooks();
 
     return (
-        <nav className="w-full fixed top-0 z-50 bg-white border-b lg:border-0 lg:bg-transparent p-4 md:px-16">
+        <nav className="w-full fixed top-0 z-50 bg-white border-b p-4 md:px-16">
             <div>
                 <button
                     className="lg:hidden text-2xl"
@@ -23,7 +23,7 @@ export default function Navbar() {
             <ul
                 className={`${
                     isMenuOpen ? "flex" : "hidden"
-                } flex-col lg:flex lg:flex-row lg:items-center lg:justify-end w-full lg:w-auto gap-8 p-4 lg:px-16 lg:py-0 bg-white lg:bg-transparent`}
+                } flex-col lg:flex lg:flex-row lg:items-center lg:justify-end w-full lg:w-auto gap-8 p-4 lg:px-16 lg:py-0 bg-white`}
             >
                 {navbarPattern.map((item) => (
                     <Navlink
