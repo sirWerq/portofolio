@@ -10,7 +10,7 @@ export default function Navbar() {
     const { isMenuOpen, setIsMenuOpen } = useGlobalHooks();
 
     return (
-        <nav className="w-full fixed top-0 z-50 bg-white border-b p-4 md:px-16">
+        <nav className="w-full fixed top-0 z-50 bg-white border-b-2 p-4 md:px-16">
             <div>
                 <button
                     className="lg:hidden text-2xl"

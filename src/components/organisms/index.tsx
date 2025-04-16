@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ContactForm from "./Form";
 
-export { Navbar, Footer };
+export { Navbar, Footer, ContactForm };

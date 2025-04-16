@@ -1,3 +1,3 @@
-import { fadeUp } from "./animation";
+import { fadeUp, slideInLeft } from "./animation";
 
-export { fadeUp };
+export { fadeUp, slideInLeft };

@@ -16,6 +16,8 @@ interface Project {
     title: string;
     description: string;
     href: string;
+    techStack: string[];
+    role: string;
 }
 
 const experiences: Experience[] = [
@@ -45,6 +47,8 @@ const projects: Project[] = [
         description:
             "A trusted platform offering professionally designed templates to showcase your work attractively and effectively. We believe your unique journey and achievements deserve recognition and appreciation.",
         href: "https://portoku.live/",
+        techStack: ["Next.js", "Tailwind CSS", "Vite", "React Js"],
+        role: "Front-End Developer",
     },
 ];
 
@@ -115,6 +119,8 @@ export default function Home() {
                             title={project.title}
                             description={project.description}
                             href={project.href}
+                            techStack={project.techStack}
+                            role={project.role}
                         />
                     ))}
                     <Arrow href={"/works"} />

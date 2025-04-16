@@ -23,6 +23,9 @@ interface Project {
     image: string;
     title: string;
     description: string;
+    href: string;
+    techStack: string[];
+    role: string;
 }
 
 const worksExperiences: Experience[] = [
@@ -62,6 +65,9 @@ const projects: Project[] = [
         title: "Porto Maker",
         description:
             "A trusted platform offering professionally designed templates to showcase your work attractively and effectively. We believe your unique journey and achievements deserve recognition and appreciation.",
+        href: "https://portoku.live/",
+        techStack: ["Next.js", "Tailwind CSS", "Vite", "React Js"],
+        role: "Front-End Developer",
     },
 ];
 
@@ -135,7 +141,7 @@ export default function Works() {
                 </div>
             </div>
             <div className="space-y-1 lg:space-y-2">
-                <h2 className="font-semibold text-2xl">Projects (Details)</h2>
+                <h2 className="font-semibold text-2xl">Projects</h2>
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 items-center">
                     {projects.length > 0 ? (
                         projects.map((project) => (
@@ -144,8 +150,9 @@ export default function Works() {
                                 image={project.image}
                                 title={project.title}
                                 description={project.description}
-                                href={`works/${project.id}`}
-                                target="_self"
+                                href={project.href}
+                                techStack={project.techStack}
+                                role={project.role}
                             />
                         ))
                     ) : (

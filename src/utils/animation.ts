@@ -17,3 +17,19 @@ export const fadeUp: Variants = {
         },
     },
 };
+
+export const slideInLeft: Variants = {
+    hidden: {
+        x: -100,
+        opacity: 0,
+    },
+    show: {
+        x: 0,
+        opacity: 1,
+        transition: {
+            type: "spring",
+            damping: 30,
+            stiffness: 200,
+        },
+    },
+};
