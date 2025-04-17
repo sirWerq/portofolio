@@ -67,53 +67,59 @@ export default function ContactForm() {
     };
 
     return (
-        <motion.div variants={slideInLeft} className="lg:w-2/3">
-            <div className="text-4xl font-black mb-8">Send Me a Message</div>
-
+        <motion.div variants={slideInLeft} className="max-w-4xl w-full px-4">
+            <div className="text-3xl md:text-4xl font-bold mb-6 text-center">
+                Send Me a Message
+            </div>
             <motion.div
                 variants={fadeUp}
-                className="bg-white border-4 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0)]"
+                className="bg-white border-4 border-black p-8 md:p-10 rounded-xl shadow-[8px_8px_0px_0px_rgba(0,0,0)] space-y-6"
             >
-                {status.success ? (
+                {status.success && (
                     <motion.div
                         variants={fadeUp}
-                        className="p-4 bg-green-100 border-2 border-green-500 mb-6"
+                        className="p-4 bg-green-100 border-2 border-green-500 rounded"
                     >
-                        <p className="text-green-800 font-bold">
+                        <p className="text-green-800 font-semibold text-center">
                             Message sent successfully! I&apos;ll get back to you
                             soon.
                         </p>
                     </motion.div>
-                ) : null}
+                )}
 
-                {status.error ? (
+                {status.error && (
                     <motion.div
                         variants={fadeUp}
-                        className="p-4 bg-red-100 border-2 border-red-500 mb-6"
+                        className="p-4 bg-red-100 border-2 border-red-500 rounded"
                     >
-                        <p className="text-red-800 font-bold">{status.error}</p>
+                        <p className="text-red-800 font-semibold text-center">
+                            {status.error}
+                        </p>
                     </motion.div>
-                ) : null}
+                )}
 
-                <form className="space-y-6" onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <motion.div variants={fadeUp} className="space-y-2">
-                            <label htmlFor="name" className="text-lg font-bold">
+                        <motion.div variants={fadeUp} className="flex flex-col">
+                            <label
+                                htmlFor="name"
+                                className="text-lg font-medium mb-1"
+                            >
                                 Name
                             </label>
                             <input
                                 id="name"
                                 placeholder="Your Name"
-                                className="border-4 border-black p-3 h-auto focus:ring-2 focus:ring-yellow-400 focus:border-black"
+                                className="border-2 border-black p-3 rounded focus:ring-2 focus:ring-yellow-400"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
                             />
                         </motion.div>
-                        <motion.div variants={fadeUp} className="space-y-2">
+                        <motion.div variants={fadeUp} className="flex flex-col">
                             <label
                                 htmlFor="email"
-                                className="text-lg font-bold"
+                                className="text-lg font-medium mb-1"
                             >
                                 Email
                             </label>
@@ -121,7 +127,7 @@ export default function ContactForm() {
                                 id="email"
                                 type="email"
                                 placeholder="Your Email"
-                                className="border-4 border-black p-3 h-auto focus:ring-2 focus:ring-yellow-400 focus:border-black"
+                                className="border-2 border-black p-3 rounded focus:ring-2 focus:ring-yellow-400"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
@@ -129,29 +135,35 @@ export default function ContactForm() {
                         </motion.div>
                     </div>
 
-                    <motion.div variants={fadeUp} className="space-y-2">
-                        <label htmlFor="subject" className="text-lg font-bold">
+                    <motion.div variants={fadeUp} className="flex flex-col">
+                        <label
+                            htmlFor="subject"
+                            className="text-lg font-medium mb-1"
+                        >
                             Subject
                         </label>
                         <input
                             id="subject"
                             placeholder="Subject"
-                            className="border-4 border-black p-3 h-auto focus:ring-2 focus:ring-yellow-400 focus:border-black"
+                            className="border-2 border-black p-3 rounded focus:ring-2 focus:ring-yellow-400"
                             value={formData.subject}
                             onChange={handleChange}
                             required
                         />
                     </motion.div>
 
-                    <motion.div variants={fadeUp} className="space-y-2">
-                        <label htmlFor="message" className="text-lg font-bold">
+                    <motion.div variants={fadeUp} className="flex flex-col">
+                        <label
+                            htmlFor="message"
+                            className="text-lg font-medium mb-1"
+                        >
                             Message
                         </label>
                         <textarea
                             id="message"
                             placeholder="Your Message"
                             rows={6}
-                            className="border-4 border-black p-3 focus:ring-2 focus:ring-yellow-400 focus:border-black"
+                            className="border-2 border-black p-3 rounded focus:ring-2 focus:ring-yellow-400"
                             value={formData.message}
                             onChange={handleChange}
                             required
@@ -160,12 +172,13 @@ export default function ContactForm() {
 
                     <motion.div
                         variants={fadeUp}
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="text-center"
                     >
                         <button
                             type="submit"
-                            className="bg-black cursor-pointer text-white border-4 border-black hover:bg-white hover:text-black text-lg px-8 py-4 h-auto rounded-none shadow-[6px_6px_0px_0px_rgba(0,0,0)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0)] transition-all w-full md:w-auto"
+                            className="bg-yellow-400 text-black font-bold px-8 py-3 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition-all duration-150 hover:bg-yellow-300 focus:outline-none disabled:opacity-50"
                             disabled={status.loading}
                         >
                             {status.loading ? "Sending..." : "Send Message"}

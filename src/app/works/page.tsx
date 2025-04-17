@@ -140,7 +140,7 @@ export default function Works() {
                     )}
                 </div>
             </div>
-            <div className="space-y-1 lg:space-y-2">
+            <div className="space-y-1 lg:space-y-2 min-h-[480px]">
                 <h2 className="font-semibold text-2xl">Projects</h2>
                 <div className="flex flex-col lg:flex-row gap-2 lg:gap-4 items-center">
                     {projects.length > 0 ? (

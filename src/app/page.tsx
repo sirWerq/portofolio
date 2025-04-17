@@ -107,7 +107,7 @@ export default function Home() {
                     <Arrow href={"/works"} />
                 </div>
             </div>
-            <div className="space-y-1 lg:space-y-2">
+            <div className="space-y-1 lg:space-y-2 min-h-[480px]">
                 <h2 className="font-semibold text-lg md:text-xl lg:text-2xl">
                     Projects
                 </h2>
