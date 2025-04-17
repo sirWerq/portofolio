@@ -16,6 +16,13 @@ export const metadata: Metadata = {
     },
     description:
         "Front-End Web Development Enthusiast | Informatics Engineering Student. Undergraduate student in Informatics Engineering at Indraprasta PGRI University, actively learning and developing skills in front-end web development. Passionate about building responsive and user-friendly web interfaces while exploring cloud technologies. Dedicated to continuous learning and innovation, aiming to contribute to impactful tech solutions and grow in the tech industry.",
+    icons: {
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/icon.png", type: "image/png" },
+        ],
+        apple: [{ url: "/apple-icon.png" }],
+    },
 };
 
 export default function RootLayout({
