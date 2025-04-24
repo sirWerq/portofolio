@@ -57,7 +57,7 @@ export default function Home() {
         <div className="px-2 md:px-16 pt-20 space-y-2 lg:space-y-6 min-h-svh">
             <div className="space-y-8 lg:space-y-2">
                 <h1 className="font-semibold text-lg md:text-xl lg:text-2xl flex items-center justify-center lg:justify-start flex-wrap gap-2 h-[54px]">
-                    <span>Hello, I am</span>
+                    <span className="text-2xl">Hello, I am</span>
                     <RotatingText
                         texts={[
                             "Rifqi Alisba Garwita Sutrisno",
