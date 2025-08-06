@@ -2,8 +2,9 @@ import { FormData } from "@/models/global";
 import { UseFormReset } from "react-hook-form";
 import { Alert } from "@/components";
 
-export default async function formService(data: FormData, reset: UseFormReset<FormData>) {
+export default async function formService(data: FormData, reset: UseFormReset<FormData>, setLoading: React.Dispatch<React.SetStateAction<boolean>>) {
     try {
+        setLoading(true);
         const response = await fetch("api/mail", {
             method: "POST",
             headers: {
@@ -27,5 +28,7 @@ export default async function formService(data: FormData, reset: UseFormReset<Fo
             "There was an error sending your message. Please try again later.",
             "error"
         );
+    } finally {
+        setLoading(true);
     }
 }

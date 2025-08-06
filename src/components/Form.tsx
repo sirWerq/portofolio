@@ -4,6 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import Image from "next/image";
 import { FormData } from "@/models/global";
 import formService from "@/services/formService";
+import { useState } from "react";
 
 export default function Form() {
         const {
@@ -12,9 +13,11 @@ export default function Form() {
         reset,
         formState: { errors },
       } = useForm<FormData>()
+
+      const [loading, setLoading] = useState<boolean>(false)
     
       const onSubmit: SubmitHandler<FormData> = async (data) => {
-        formService(data, reset)
+        formService(data, reset, setLoading)
       };
 
     return (
@@ -45,19 +48,20 @@ export default function Form() {
                     </div>
                 </div>
                 
-                <div className="flex flex-col items-center lg:items-end gap-4 lg:mt-10">
+                <div className="flex-col items-center lg:items-end gap-4 lg:mt-10 hidden lg:flex">
                     <button 
                         type="submit"
                         className="bg-[#818F7C] text-white border-t border-l border-r-4 border-b-4 border-black w-full sm:w-32 h-14 cursor-pointer hover:bg-[#727E6D] transition-colors duration-200 text-sm sm:text-base lg:mt-8 lg:mr-24"
+                        disabled={loading}
                     >
-                        Submit
+                        {loading ? "Submitting..." : "Submit"}
                     </button>
                     <Image 
                         src="/ghost.svg" 
                         alt="ghost-icon" 
                         width={60} 
                         height={60} 
-                        className="lg:absolute lg:top-0 lg:right-0 lg:w-[75px] lg:h-[75px] hidden lg:block" 
+                        className="lg:absolute lg:top-0 lg:right-0 lg:w-[75px] lg:h-[75px]" 
                     />
                 </div>
             </div>
@@ -72,6 +76,13 @@ export default function Form() {
                 />
                 {errors.message && <span className="text-red-500 text-xs sm:text-sm block mt-1">{errors.message.message}</span>}
             </div>
+            <button 
+                type="submit"
+                className="bg-[#818F7C] lg:hidden text-white border-t border-l border-r-4 border-b-4 border-black w-full sm:w-32 h-14 cursor-pointer hover:bg-[#727E6D] transition-colors duration-200 text-sm sm:text-base lg:mt-8 lg:mr-24"
+                disabled={loading}
+            >
+                {loading ? "Submitting..." : "Submit"}
+            </button>
         </form>
     )
 }
