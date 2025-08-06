@@ -8,7 +8,7 @@ export default async function formService(data: FormData, reset: UseFormReset<Fo
         const response = await fetch("api/mail", {
             method: "POST",
             headers: {
-            "Content-Type": "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
         });
@@ -29,6 +29,6 @@ export default async function formService(data: FormData, reset: UseFormReset<Fo
             "error"
         );
     } finally {
-        setLoading(true);
+        setLoading(false);
     }
 }
